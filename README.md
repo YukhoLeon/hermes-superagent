@@ -29,7 +29,7 @@
 前提：已安装 Hermes 并至少跑过一次（`hermes setup` 配好模型），飞书已接到你打算当 Router 的 profile。
 
 ```powershell
-git clone <本仓库> superagent
+git clone https://github.com/YukhoLeon/hermes-superagent.git superagent
 cd superagent
 Copy-Item superagent.config.example.json superagent.config.json
 # 编辑 superagent.config.json：hermes_home、各角色模型、看门狗投递目标、飞书 open_id
