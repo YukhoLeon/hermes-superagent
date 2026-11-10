@@ -23,7 +23,8 @@
       "web",
       "browser",
       "delegation",
-      "computer_use"
+      "computer_use",
+      "clarify"
     ],
     "_display": "建议另在 Router profile 的 config.yaml display: 下写 tool_progress: \"off\"（带引号），否则飞书会播报每一次工具调用。安装脚本不改这项。"
   },
