@@ -49,6 +49,15 @@ FEISHU_GROUP_POLICY=allowlist
 
 验证：`hermes profile list`、`hermes kanban stats`，然后在飞书对 planer 说一句需要多步的话，看它是建卡派人而不是自己动手。
 
+### 让飞书只收到一条汇报
+
+默认情况下一张卡做完你会在飞书收到三段：看板的格式化通知（带附件）、planer 的工具进度播报、planer 的汇报。只保留最后一段需要两处设置：
+
+1. 配置里 `notifications.quiet: true`（默认已开）。安装脚本会装并启用 `plugins/sa-quiet`，它在卡片被领取时把聊天建卡自动生成的 `notify+wake` 订阅改成 `wake`，终态只叫醒 planer 汇报一次。
+2. 在 Router profile 的 `config.yaml` 的 `display:` 段加一行 `tool_progress: "off"`（**引号必须有**，`hermes config set` 会把 off 当成布尔值写错）。安装脚本不改这项。
+
+代价：planer 被叫醒后若出错没回话，这张卡就没有消息；看门狗会在 6 小时后兜底。
+
 卸载：`powershell -ExecutionPolicy Bypass -File .\uninstall.ps1`（保留 profile 和看板数据）。
 
 ## 增删角色
@@ -75,6 +84,7 @@ superagent/
 ├── skills/superagent/               sa-router / sa-worker 技能
 ├── templates/mandate.md             卡片授权头模板
 ├── scripts/sa_watchdog.py           看门狗（给 cron --no-agent 用）
+├── plugins/sa-quiet/                终态只由 Router 汇报一次（notifications.quiet 时安装）
 ├── optional/sa-gate/                可选插件：零 token 快速建卡，默认不装
 └── docs/
 ```

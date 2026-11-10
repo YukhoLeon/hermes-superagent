@@ -192,6 +192,19 @@ if ($SkipCron -or -not $cfg.watchdog.enabled -or -not $deliver -or $deliver -mat
     }
 }
 
+# ---------- 5b. 静音插件（可选） ----------
+if ($cfg.notifications -and $cfg.notifications.quiet) {
+    Write-Host "[5b] sa-quiet 插件（看板终态只由 Router 汇报一次）"
+    $pluginSrc = Join-Path $Kit "plugins\sa-quiet"
+    $pluginDst = Join-Path $Home_ "plugins\sa-quiet"
+    if (-not $DryRun) {
+        New-Item -ItemType Directory -Force $pluginDst | Out-Null
+        Copy-Item (Join-Path $pluginSrc "*") $pluginDst -Force
+    }
+    Write-Host "  插件 -> $pluginDst"
+    Run @("plugins", "enable", "sa-quiet") | Out-Null
+}
+
 # ---------- 6. 飞书白名单检查（只读） ----------
 Write-Host "[6/6] 飞书白名单检查（不改 .env）"
 $envFile = Join-Path $Home_ "profiles\$($router.profile)\.env"

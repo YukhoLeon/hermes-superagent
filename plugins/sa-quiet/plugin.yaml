@@ -1,0 +1,6 @@
+name: sa-quiet
+version: "0.1.0"
+description: "Super-agent 静音：卡片被工人领取时，把聊天建卡自动生成的 notify+wake 订阅改成 wake，只叫醒 Router 汇报，不再先推一条格式化的被动通知。"
+author: "superagent starter kit"
+provides_hooks:
+  - kanban_task_claimed

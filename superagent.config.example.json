@@ -24,7 +24,8 @@
       "browser",
       "delegation",
       "computer_use"
-    ]
+    ],
+    "_display": "建议另在 Router profile 的 config.yaml display: 下写 tool_progress: \"off\"（带引号），否则飞书会播报每一次工具调用。安装脚本不改这项。"
   },
   "workers": [
     {
@@ -66,5 +67,9 @@
     ],
     "group_policy": "allowlist",
     "_说明": "安装脚本不会改 .env（那是密钥文件），只会检查并打印应该怎么填。"
+  },
+  "notifications": {
+    "quiet": true,
+    "_quiet": "true = 安装并启用 sa-quiet 插件：卡片被领取时把聊天建卡的 notify+wake 订阅改成 wake，终态只由 Router 汇报一次，不再先推一条格式化通知。"
   }
 }
