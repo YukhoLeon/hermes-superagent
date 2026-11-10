@@ -1,0 +1,9 @@
+name: sa-gate
+version: "0.1.0"
+description: "Super-agent 门卫与快速路径：以 /sa 或 派单 开头的消息零 token 直接建 Kanban 卡并订阅完成通知；记录接单/拒单日志；提供 hermes superagent status。"
+author: "superagent starter kit"
+provides_hooks:
+  - post_gateway_admission
+  - kanban_task_claimed
+  - kanban_task_completed
+  - kanban_task_blocked

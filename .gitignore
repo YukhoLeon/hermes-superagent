@@ -1,0 +1,13 @@
+# 个人配置：含飞书 chat_id / open_id / 本机路径
+superagent.config.json
+
+# 安装时备份的旧 SOUL.md
+backup/
+
+# 看门狗的运行状态
+.sa_watchdog_state.json
+
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
