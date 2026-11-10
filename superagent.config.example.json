@@ -5,8 +5,8 @@
   "router": {
     "profile": "planer",
     "description": "全局任务规划、分派、状态追踪及用户沟通",
-    "model": "claude-sonnet-5-5",
-    "_model": "Router 只做判断和建卡，用便宜模型即可。留空 = 不改动该 profile 现有模型。",
+    "model": "",
+    "_model": "留空 = 不改动该 profile 现有模型（模型属于运行时偏好，由 Hermes 自己的设置管）。Router 只做判断和建卡，便宜模型即可。",
     "platforms": [
       "cli",
       "feishu"
